@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "iran-sans";
+  src: url("/fonts/IRANSansX-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Dana";
+  src: url("/fonts/dana_medium.ttf");
+}
+
+@font-face {
+  font-family: "digikala";
+  src: url("/fonts/digikala.ttf");
+}
+
+@theme {
+  /* پالت استخراج شده از لوگوی رانی شاپ */
+  --color-gold-900: #7a5a22;
+  --color-gold-800: #8f6b2a;
+  --color-gold-700: #b08a3e;
+  --color-gold-500: #c9a050;
+  --color-gold-400: #d9b36c;
+  --color-gold-200: #ebd6a8;
+  --color-gold-100: #f4e8d0;
+  --color-gold-50: #faf4ea;
+
+  --color-cream-50: #fdfaf4;
+  --color-cream-100: #f7efe3;
+  --color-cream-200: #eee3d1;
+
+  --color-ink-900: #2a2216;
+  --color-ink-700: #4a3d2b;
+  --color-ink-500: #75644c;
+  --color-ink-300: #ab9b84;
+
+  --font-iran-sans: "iran-sans";
+  --font-dana: "Dana";
+  --font-digikala: "digikala";
+  --font-vazir: "Vazirmatn";
+}
+
+html {
+  background-color: #fdfdfd !important;
+}
+
+@layer components {
+  /* =========================================================
+     Buttons (دکمه‌های اصلی و ثانویه)
+     ========================================================= */
+
+  /* دکمه اصلی گرادینت متالیک (مشابه خطوط درخشان لباس لوگو) */
+  .btn-gold-primary {
+    @apply relative inline-flex items-center justify-center px-7 py-3 rounded-xl font-medium text-cream-50
+           bg-gradient-to-br from-gold-400 via-gold-700 to-gold-900
+           shadow-[0_4px_16px_rgba(143,107,42,0.3)]
+           hover:shadow-[0_8px_24px_rgba(143,107,42,0.45)]
+           hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]
+           transition-all duration-300 ease-out select-none cursor-pointer;
+  }
+
+  /* دکمه ثانویه اوت‌لاین لوکس (حاشیه متالیک طلایی و پس‌زمینه شفاف) */
+  .btn-gold-outline {
+    @apply relative inline-flex items-center justify-center px-7 py-3 rounded-xl font-medium
+           text-gold-900 bg-cream-50/70 backdrop-blur-sm border border-gold-400/60
+           hover:border-gold-700 hover:bg-gold-50 hover:text-gold-900
+           hover:-translate-y-0.5 active:translate-y-0
+           shadow-sm transition-all duration-300 ease-out select-none cursor-pointer;
+  }
+
+  /* دکمه مینیمال متنی یا آیکونی (مناسب سبد خرید و آیکون هدر) */
+  .btn-gold-ghost {
+    @apply inline-flex items-center justify-center p-2.5 rounded-xl text-ink-700
+           hover:text-gold-900 hover:bg-gold-100/50 active:bg-gold-200/50
+           transition-colors duration-200 cursor-pointer;
+  }
+
+  /* =========================================================
+     Links & Typography Accents (لینک‌ها و متن‌های هایلایت)
+     ========================================================= */
+
+  /* لینک لوکس با هاور خط زیرین شیک و روان */
+  .link-luxury {
+    @apply relative inline-block text-ink-700 hover:text-gold-800 transition-colors duration-200 font-medium
+           after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[1.5px] 
+           after:bottom-[-2px] after:left-0 after:bg-gradient-to-r after:from-gold-400 after:to-gold-800
+           after:origin-bottom-right hover:after:origin-bottom-left hover:after:scale-x-100
+           after:transition-transform after:duration-300;
+  }
+
+  /* متن با گرادینت متالیک طلایی (برای تیترهای خاص و نام برند) */
+  .text-gold-gradient {
+    @apply bg-gradient-to-r from-gold-900 via-gold-700 to-gold-400 bg-clip-text text-transparent;
+  }
+
+  /* =========================================================
+     Badges & Tags (تگ‌های تخفیف، جدید، وضعیت سفارش)
+     ========================================================= */
+
+  .badge-gold {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold
+           bg-gradient-to-r from-gold-700 to-gold-900 text-cream-50 shadow-sm tracking-wide;
+  }
+
+  .badge-gold-subtle {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium
+           bg-gold-100 text-gold-900 border border-gold-200 tracking-wide;
+  }
+
+  /* =========================================================
+     Cards & Containers (کارت‌ها و کانتینرهای سطح)
+     ========================================================= */
+
+  /* کارت لوکس محصول با حاشیه ظریف طلایی */
+  .card-luxury {
+    @apply bg-cream-50 border border-gold-200/70 rounded-2xl overflow-hidden
+           shadow-[0_4px_20px_rgba(42,34,22,0.04)]
+           hover:shadow-[0_12px_32px_rgba(143,107,42,0.15)]
+           hover:border-gold-400/80 hover:-translate-y-1
+           transition-all duration-300 ease-out;
+  }
+
+  /* =========================================================
+     Inputs & Form Controls (فرم‌ها و فیلدهای ورود اطلاعات)
+     ========================================================= */
+
+  .input-luxury {
+    @apply w-full px-4 py-3 rounded-xl bg-cream-50 border border-gold-200
+           text-ink-900 placeholder:text-ink-300 text-sm
+           focus:outline-none focus:border-gold-700 focus:ring-2 focus:ring-gold-400/25
+           transition-all duration-200;
+  }
+}
