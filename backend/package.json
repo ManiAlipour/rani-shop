@@ -8,5 +8,14 @@
   },
   "peerDependencies": {
     "typescript": "^7"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.6",
+    "auto-bind": "^5.0.1",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.9.5",
+    "nodemailer": "^10.0.1",
+    "zod": "^4.5.4"
   }
 }
