@@ -62,5 +62,8 @@ export class SmsService {
   }
 }
 
-// Export a singleton instance if needed, or instantiate it where you need it
 export const smsService = new SmsService(process.env.SMS_KEY!);
+
+export const TEMPLATE_CODE = {
+  AUTH: 123456,
+};

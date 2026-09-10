@@ -14,4 +14,12 @@ export default class Controller {
   ) {
     return res.status(status).json({ success: true, data, message });
   }
+
+  sendError(res: Response, message: string, status: number) {
+    return this.sendResponse(res, null, status, message);
+  }
+
+  sendServerError(res: Response) {
+    return this.sendResponse(res, null, 500, "خطا در ارتباط با سرور");
+  }
 }

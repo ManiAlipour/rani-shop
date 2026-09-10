@@ -102,6 +102,8 @@ const userSchema = new Schema<IUserDocument>(
 
 userSchema.index({ phoneNumber: 1, deletedAt: 1 });
 
-const User = mongoose.models.User || model<IUserDocument>("User", userSchema);
+const UserModel = model<IUserDocument>("User", userSchema);
+
+const User: mongoose.Model<IUserDocument> = mongoose.models.User || UserModel;
 
 export default User;
