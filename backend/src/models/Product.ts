@@ -1,4 +1,4 @@
-import mongoose, { Schema, model, type Document, Types } from "mongoose";
+import mongoose, { Schema, model, type Document, Types, Model } from "mongoose";
 
 export interface IProductDocument extends Document {
   title: string;
@@ -11,7 +11,7 @@ export interface IProductDocument extends Document {
   images?: string[];
   tags?: string[];
   isActive: boolean;
-  attributes?: Record<string, any>; 
+  attributes?: Record<string, any>;
   createdAt: Date;
   updatedAt: Date;
   deletedAt?: Date | null;
@@ -46,6 +46,8 @@ const ProductSchema = new Schema<IProductDocument>(
   { timestamps: true },
 );
 
-const Product =
-  mongoose.models.Product || model<IProductDocument>("Product", ProductSchema);
+const Product: Model<IProductDocument> =
+  (mongoose.models.Product as Model<IProductDocument>) ||
+  model<IProductDocument>("Product", ProductSchema);
+
 export default Product;
