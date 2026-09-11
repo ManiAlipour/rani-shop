@@ -1,4 +1,4 @@
-import mongoose, { Schema, model, type Document, Types } from "mongoose";
+import mongoose, { Schema, model, type Document, Types, Model } from "mongoose";
 
 export interface IVariantDocument extends Document {
   productId: Types.ObjectId;
@@ -37,6 +37,6 @@ const VariantSchema = new Schema<IVariantDocument>(
   { timestamps: true },
 );
 
-const Variant =
+const Variant: Model<IVariantDocument> =
   mongoose.models.Variant || model<IVariantDocument>("Variant", VariantSchema);
 export default Variant;
