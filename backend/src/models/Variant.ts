@@ -7,7 +7,6 @@ export interface IVariantDocument extends Document {
   size?: string;
   material?: string;
   stock: number;
-  price?: number;
   priceOverride?: number;
   image?: string;
   attributes?: Record<string, any>;
