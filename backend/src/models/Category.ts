@@ -1,4 +1,4 @@
-import mongoose, { Schema, model, type Document, Types } from "mongoose";
+import mongoose, { Schema, model, type Document, Types, Model } from "mongoose";
 
 export type CategoryType = "MAIN" | "SUB";
 
@@ -41,7 +41,7 @@ const CategorySchema = new Schema<ICategoryDocument>(
   { timestamps: true },
 );
 
-const Category =
+const Category: Model<ICategoryDocument> =
   mongoose.models.Category ||
   model<ICategoryDocument>("Category", CategorySchema);
 export default Category;
