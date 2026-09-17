@@ -9,6 +9,7 @@ export interface ICart {
   userId?: Types.ObjectId;
   guestId?: string;
   items: ICartItem[];
+  couponId?: Types.ObjectId | null; // <-- اینجاست (کل سبد)
 }
 
 export interface ICartDocument extends ICart, Document {
@@ -23,7 +24,6 @@ const CartItemSchema = new Schema<ICartItem>(
       ref: "Variant",
       required: true,
     },
-
     quantity: {
       type: Number,
       required: true,
@@ -56,6 +56,12 @@ const CartSchema = new Schema<ICartDocument>(
     items: {
       type: [CartItemSchema],
       default: [],
+    },
+
+    couponId: {
+      type: Schema.Types.ObjectId,
+      ref: "Coupon",
+      default: null,
     },
   },
   {

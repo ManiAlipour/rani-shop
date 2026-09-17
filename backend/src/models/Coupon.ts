@@ -1,4 +1,4 @@
-import mongoose, { Schema, model, type Document } from "mongoose";
+import mongoose, { Model, Schema, model, type Document } from "mongoose";
 
 export type CouponType = "PERCENT" | "FIXED";
 
@@ -41,6 +41,6 @@ const couponSchema = new Schema<ICouponDocument>(
 
 couponSchema.index({ isActive: 1, expiresAt: 1 });
 
-const Coupon =
+const Coupon: Model<ICouponDocument> =
   mongoose.models.Coupon || model<ICouponDocument>("Coupon", couponSchema);
 export default Coupon;

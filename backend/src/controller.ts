@@ -1,9 +1,14 @@
 import autoBind from "auto-bind";
 import type { Response } from "express";
+import mongoose from "mongoose";
 
 export default class Controller {
   constructor() {
     autoBind(this);
+  }
+
+  protected isValidObjectId(id: unknown): id is string {
+    return typeof id === "string" && mongoose.Types.ObjectId.isValid(id);
   }
 
   sendResponse<T>(

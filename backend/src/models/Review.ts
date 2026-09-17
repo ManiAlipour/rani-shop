@@ -1,4 +1,4 @@
-import mongoose, { Schema, model, type Document, Types } from "mongoose";
+import mongoose, { Schema, model, type Document, Types, Model } from "mongoose";
 
 export interface IReviewDocument extends Document {
   user: Types.ObjectId;
@@ -8,7 +8,7 @@ export interface IReviewDocument extends Document {
   title?: string;
   body?: string;
   isVerifiedPurchase: boolean;
-  status: "PENDING" | "APPROVED" | "REJECTED"; 
+  status: "PENDING" | "APPROVED" | "REJECTED";
   createdAt: Date;
   updatedAt: Date;
   deletedAt?: Date | null;
@@ -45,6 +45,6 @@ const reviewSchema = new Schema<IReviewDocument>(
 
 reviewSchema.index({ user: 1, product: 1 }, { unique: true });
 
-const Review =
+const Review: Model<IReviewDocument> =
   mongoose.models.Review || model<IReviewDocument>("Review", reviewSchema);
 export default Review;

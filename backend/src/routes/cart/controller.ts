@@ -4,7 +4,7 @@ import { Types } from "mongoose";
 import Controller from "@/controller";
 import Cart, { type ICartDocument } from "@/models/Cart";
 
-const GUEST_COOKIE_NAME = "guestId";
+export const GUEST_COOKIE_NAME = "guestId";
 const GUEST_COOKIE_MAX_AGE = 30 * 24 * 60 * 60 * 1000;
 
 const cartController = new (class extends Controller {
