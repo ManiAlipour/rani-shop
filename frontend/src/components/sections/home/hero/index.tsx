@@ -35,7 +35,7 @@ export default function HeroSection() {
             ساخته شده‌اند.
           </p>
 
-          <Button variant="gold" size="md">
+          <Button variant="gold" size="lg">
             مشاهده کالکشن
           </Button>
         </div>
