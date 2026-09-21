@@ -1,10 +1,7 @@
 import { z } from "zod";
 
 export const objectIdSchema = z
-  .string({
-    required_error: "شناسه الزامی است",
-    invalid_type_error: "شناسه باید رشته متنی باشد",
-  })
+  .string("شناسه الزامی است")
   .trim()
   .regex(
     /^[0-9a-fA-F]{24}$/,
@@ -15,10 +12,7 @@ export const addToCartSchema = z.object({
   body: z.object({
     variantId: objectIdSchema,
     quantity: z
-      .number({
-        required_error: "تعداد الزامی است",
-        invalid_type_error: "تعداد باید عدد باشد",
-      })
+      .number("تعداد الزامی است")
       .int("تعداد باید یک عدد صحیح باشد")
       .min(1, "حداقل تعداد مجاز ۱ عدد است")
       .max(99, "حداکثر تعداد مجاز برای هر آیتم ۹۹ عدد است")
@@ -32,10 +26,7 @@ export const updateCartItemSchema = z.object({
   }),
   body: z.object({
     quantity: z
-      .number({
-        required_error: "تعداد الزامی است",
-        invalid_type_error: "تعداد باید عدد باشد",
-      })
+      .number("تعداد الزامی است")
       .int("تعداد باید یک عدد صحیح باشد")
       .min(1, "حداقل تعداد مجاز ۱ عدد است")
       .max(99, "حداکثر تعداد مجاز برای هر آیتم ۹۹ عدد است"),
