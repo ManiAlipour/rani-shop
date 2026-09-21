@@ -54,8 +54,6 @@ coverage/
 **/coverage/
 .nyc_output/
 
-uploads/
-**/uploads/
 public/uploads/
 **/public/uploads/
 
