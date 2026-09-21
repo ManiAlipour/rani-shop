@@ -1,7 +1,7 @@
 import React from "react";
 import CategoryCard from "./CategoryCard";
 import Link from "next/link";
-import { id, ArrowLeft, Sparkles } from "lucide-react";
+import {  ArrowLeft, Sparkles } from "lucide-react";
 
 const CATEGORIES_DATA = [
   {
